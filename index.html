@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e8">
+    <meta name="description" content="GymKey is a battery-free NFC key that turns your iPhone into a focused workout tool.">
+    <meta property="og:title" content="GymKey — Tap in. Train without the scroll.">
+    <meta property="og:description" content="A physical key for focused training: tap in, block your chosen distractions, train, then tap out.">
+    <meta property="og:image" content="assets/gymkey-black-keyring.png">
+    <title>GymKey — Tap in. Train without the scroll.</title>
+    <link rel="icon" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="GymKey home">
+        <span class="brand-mark" aria-hidden="true"><span>G</span><i></i></span>
+        <span>GYMKEY</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span>Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary" data-nav>
+        <a href="#how-it-works">How it works</a>
+        <a href="#app">The app</a>
+        <a href="#hardware">Hardware</a>
+        <a class="nav-cta" href="#status">Build status</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> iPhone private beta · Hardware in EVT</p>
+          <h1 id="hero-title">Tap in.<br>Train without<br>the scroll.</h1>
+          <p class="hero-lede">GymKey is a physical switch for your workout. One tap blocks the distractions you choose, opens your training plan and starts your soundtrack.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="#status">Follow the build <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="proof-row">
+            <li>Battery-free</li>
+            <li>Passive NFC</li>
+            <li>No subscription planned</li>
+          </ul>
+        </div>
+
+        <div class="hero-product reveal" data-delay="1">
+          <div class="product-number" aria-hidden="true">01</div>
+          <div class="product-stage">
+            <div class="stage-orbit" aria-hidden="true"></div>
+            <img src="assets/gymkey-black-keyring.png" alt="Matte-black GymKey with embossed wordmark, lime accent and stainless keyring" width="1254" height="1254" fetchpriority="high">
+          </div>
+          <p class="product-caption">V1 industrial design<br><span>40 × 38 × 5.5 mm body</span></p>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="steps section-shell" aria-labelledby="steps-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> A deliberate ritual</p>
+          <h2 id="steps-title">Your phone changes jobs at the gym.</h2>
+          <p>It keeps the useful parts—music, timers, the workout—and puts your chosen distractions behind Apple’s Screen Time shield.</p>
+        </div>
+
+        <ol class="step-list">
+          <li class="step reveal">
+            <span class="step-index">01</span>
+            <div class="step-line" aria-hidden="true"><i></i></div>
+            <h3>Tap in</h3>
+            <p>Open GymKey and scan the key at the top of your iPhone. Your tag is read, never overwritten.</p>
+          </li>
+          <li class="step reveal" data-delay="1">
+            <span class="step-index">02</span>
+            <div class="step-line" aria-hidden="true"><i></i></div>
+            <h3>Train</h3>
+            <p>Your selected apps and sites are shielded. The day’s workout, rest timer and Spotify playlist stay ready.</p>
+          </li>
+          <li class="step reveal" data-delay="2">
+            <span class="step-index">03</span>
+            <div class="step-line" aria-hidden="true"><i></i></div>
+            <h3>Tap out</h3>
+            <p>Finish the workout and scan the same GymKey. Training Mode clears locally and your normal phone returns.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="app" class="app-section" aria-labelledby="app-title">
+        <div class="app-copy reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> The companion app</p>
+          <h2 id="app-title">Fewer choices between sets.</h2>
+          <p>The app is intentionally small. Set up what disappears, choose a playlist, see today’s plan, then get out of the interface and train.</p>
+          <ul class="feature-list">
+            <li><span>01</span> Apple’s private app and website picker</li>
+            <li><span>02</span> Workout plan, set logging and rest timer</li>
+            <li><span>03</span> Same-key finish with offline local state</li>
+          </ul>
+          <p class="boundary-note">The current public build is a product demo. Physical NFC and Screen Time enforcement are being validated in signed native builds before sale.</p>
+        </div>
+        <div class="phone-pair reveal" data-delay="1" role="group" aria-label="GymKey app screens">
+          <figure class="phone phone-back">
+            <img src="assets/gymkey-app-welcome.png" alt="GymKey iPhone welcome screen" loading="lazy">
+          </figure>
+          <figure class="phone phone-front">
+            <img src="assets/gymkey-app-training.jpg" alt="GymKey active workout screen with set logging" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section id="hardware" class="hardware section-shell" aria-labelledby="hardware-title">
+        <div class="hardware-intro reveal">
+          <p class="eyebrow"><span></span> Built to live on your keys</p>
+          <h2 id="hardware-title">A gym tool, not another device to charge.</h2>
+          <p>The electronics are the simplest part: a passive NFC inlay inside a durable two-piece shell. The eyelet is molded plastic and the metal ring is isolated from the antenna.</p>
+        </div>
+        <div class="hardware-specs reveal" data-delay="1">
+          <dl>
+            <div><dt>Material</dt><dd>Fine-grain PC/ABS</dd></div>
+            <div><dt>NFC</dt><dd>NTAG213-class inlay</dd></div>
+            <div><dt>Body</dt><dd>40 × 38 × 5.5 mm</dd></div>
+            <div><dt>Attachment</dt><dd>Molded eyelet + 25 mm ring</dd></div>
+          </dl>
+          <a class="drawing-link" href="assets/gymkey-v1-dimensions.svg" target="_blank" rel="noopener">Open the V1 dimension drawing <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section id="status" class="status-section" aria-labelledby="status-title">
+        <div class="status-copy reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> Prelaunch, honestly</p>
+          <h2 id="status-title">We will open orders after the key proves itself.</h2>
+          <p>No countdown timer. No invented reviews. The next milestone is a real iPhone, a real NFC key and a signed Screen Time build passing the full start-to-finish recovery matrix.</p>
+        </div>
+        <div class="status-board reveal" data-delay="1">
+          <div class="status-row status-done"><span>01</span><p>End-to-end app experience</p><strong>Built</strong></div>
+          <div class="status-row status-active"><span>02</span><p>Native NFC + Screen Time</p><strong>In validation</strong></div>
+          <div class="status-row"><span>03</span><p>30–50 EVT hardware samples</p><strong>Next</strong></div>
+          <div class="status-row"><span>04</span><p>Capped refundable reservation</p><strong>After proof</strong></div>
+        </div>
+      </section>
+
+      <section class="closing section-shell" aria-labelledby="closing-title">
+        <p class="eyebrow"><span></span> Train first</p>
+        <h2 id="closing-title">The phone can wait.<br>The next set cannot.</h2>
+        <a class="button button-primary" href="#top">Back to the key <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand-footer" href="#top"><span class="brand-mark" aria-hidden="true"><span>G</span><i></i></span><span>GYMKEY</span></a>
+      <p>Focused training hardware · Sydney, Australia</p>
+      <p>© <span data-year></span> GymKey. Prelaunch prototype.</p>
+    </footer>
+  </body>
+</html>

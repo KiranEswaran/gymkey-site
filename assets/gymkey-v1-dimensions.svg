@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">GymKey V1 dimensioned CAD starter</title>
+  <desc id="desc">Front and side dimension views of the matte-black rounded square GymKey with upper-left eyelet.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#c8ff3d"/></marker>
+    <style>
+      .bg{fill:#11120f}.body{fill:#20211e;stroke:#656760;stroke-width:2}.seam{fill:none;stroke:#3e403a;stroke-width:3}.lime{fill:#c8ff3d;stroke:#819f28;stroke-width:2}.hole{fill:#11120f;stroke:#656760;stroke-width:2}.dim{stroke:#c8ff3d;stroke-width:2;marker-start:url(#arrow);marker-end:url(#arrow)}.ext{stroke:#66705a;stroke-width:1}.label{fill:#f4f2ea;font:600 18px Inter,Arial,sans-serif}.small{fill:#a9aaa4;font:15px Inter,Arial,sans-serif}.brand{fill:#0c0d0b;stroke:#343630;stroke-width:1;font:700 44px Arial,sans-serif;letter-spacing:2px}.title{fill:#f4f2ea;font:700 30px Inter,Arial,sans-serif}.kicker{fill:#c8ff3d;font:700 14px Inter,Arial,sans-serif;letter-spacing:2px}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text x="70" y="70" class="kicker">GYMKEY V1 · DFM STARTER · MILLIMETRES</text>
+  <text x="70" y="112" class="title">Matte-black passive NFC keyring</text>
+
+  <g transform="translate(220 230)">
+    <rect x="0" y="0" width="400" height="380" rx="65" class="body"/>
+    <rect x="12" y="12" width="376" height="356" rx="56" class="seam"/>
+    <circle cx="-25" cy="115" r="50" class="body"/>
+    <rect x="-25" y="85" width="55" height="60" class="body"/>
+    <circle cx="-25" cy="115" r="22.5" class="hole"/>
+    <rect x="157" y="51" width="86" height="21" rx="10.5" class="lime"/>
+    <text x="200" y="235" text-anchor="middle" class="brand">GYMKEY</text>
+
+    <line x1="0" y1="-30" x2="400" y2="-30" class="dim"/>
+    <line x1="0" y1="-10" x2="0" y2="-60" class="ext"/>
+    <line x1="400" y1="-10" x2="400" y2="-60" class="ext"/>
+    <text x="200" y="-42" text-anchor="middle" class="label">40.0 body</text>
+
+    <line x1="-80" y1="0" x2="-80" y2="380" class="dim"/>
+    <line x1="-60" y1="0" x2="-105" y2="0" class="ext"/>
+    <line x1="-60" y1="380" x2="-105" y2="380" class="ext"/>
+    <text x="-102" y="190" transform="rotate(-90 -102 190)" text-anchor="middle" class="label">38.0</text>
+
+    <line x1="-75" y1="115" x2="25" y2="115" class="dim"/>
+    <text x="-25" y="98" text-anchor="middle" class="label">Ø10</text>
+    <text x="-25" y="142" text-anchor="middle" class="small">Ø4.5 hole</text>
+  </g>
+
+  <g transform="translate(760 292)">
+    <text x="0" y="-60" class="label">SIDE / SPLIT</text>
+    <rect x="0" y="0" width="350" height="55" rx="18" class="body"/>
+    <line x1="0" y1="25.5" x2="350" y2="25.5" class="seam"/>
+    <line x1="380" y1="0" x2="380" y2="55" class="dim"/>
+    <line x1="350" y1="0" x2="405" y2="0" class="ext"/>
+    <line x1="350" y1="55" x2="405" y2="55" class="ext"/>
+    <text x="405" y="34" class="label">5.5</text>
+    <text x="0" y="90" class="small">Front 2.95 · Back 2.55 · 0.35 alignment ridge</text>
+
+    <circle cx="175" cy="225" r="162" fill="none" stroke="#657060" stroke-width="2" stroke-dasharray="8 7"/>
+    <line x1="13" y1="225" x2="337" y2="225" class="dim"/>
+    <text x="175" y="208" text-anchor="middle" class="label">Ø32.4 NFC pocket</text>
+    <text x="175" y="252" text-anchor="middle" class="small">Centered · 1.05 deep · keep metal away</text>
+  </g>
+
+  <text x="70" y="710" class="small">Tooling engineer must finalize draft, shrink, texture, gate/ejector placement, fastening and RF detuning before steel.</text>
+</svg>
