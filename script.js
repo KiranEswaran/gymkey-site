@@ -1,37 +1,21 @@
-const navToggle = document.querySelector("[data-nav-toggle]");
-const nav = document.querySelector("[data-nav]");
+const form = document.querySelector("[data-waitlist-form]");
+const input = form?.querySelector("input[type='email']");
+const status = document.querySelector("[data-waitlist-status]");
 
-navToggle?.addEventListener("click", () => {
-  const isOpen = nav?.classList.toggle("is-open") ?? false;
-  navToggle.setAttribute("aria-expanded", String(isOpen));
+const setStatus = (message, state = "") => {
+  if (!status) return;
+  status.textContent = message;
+  status.className = `form-status${state ? ` is-${state}` : ""}`;
+};
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!input?.validity.valid) {
+    input?.focus();
+    setStatus("Enter a valid email address.", "error");
+    return;
+  }
+
+  setStatus("The waitlist connection is being switched on.");
 });
-
-nav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-  });
-});
-
-document.querySelectorAll("[data-year]").forEach((node) => {
-  node.textContent = String(new Date().getFullYear());
-});
-
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const reveals = document.querySelectorAll(".reveal");
-
-if (reducedMotion || !("IntersectionObserver" in window)) {
-  reveals.forEach((node) => node.classList.add("is-visible"));
-} else {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: "0px 0px -8%", threshold: 0.12 },
-  );
-  reveals.forEach((node) => observer.observe(node));
-}

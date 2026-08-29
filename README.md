@@ -1,6 +1,6 @@
 # GymKey website
 
-Static HTML/CSS/JavaScript prelaunch site. It is deliberately honest about the current product boundary: the experience exists, while physical NFC and Apple Screen Time distribution are still being validated.
+Static HTML/CSS/JavaScript one-screen prelaunch site. It shows one product, one promise and one waitlist action without page scrolling. The current email form is presentation and validation only until a response endpoint is connected; it does not claim success or retain an address.
 
 ## Local preview
 
@@ -12,4 +12,4 @@ Open `http://127.0.0.1:4197/`.
 
 ## Deployment
 
-This directory is published as the standalone public `gymkey-site` repository. Its local `.github/workflows/pages.yml` workflow deploys the site to GitHub Pages. No build step, secret, subscription, form backend, or paid service is required.
+This directory is published as the standalone public `gymkey-site` repository. Its local `.github/workflows/pages.yml` workflow deploys the site to GitHub Pages. No build step or paid service is required. Connect a form endpoint before using the page to collect a public waitlist.
