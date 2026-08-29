@@ -2,7 +2,7 @@
   color-scheme: light;
   --ink: #171813;
   --muted: #66675f;
-  --surface: #f2efe6;
+  --surface: #f7f1ec;
   --paper: #f9f7f1;
   --line: rgba(23, 24, 19, 0.16);
   --lime: #ccff00;
@@ -15,9 +15,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 75% 45%, rgba(255, 255, 255, 0.82), transparent 33%),
-    var(--surface);
+  background: var(--surface);
   color: var(--ink);
   font-family: var(--body);
   -webkit-font-smoothing: antialiased;
@@ -179,27 +177,10 @@ h1 {
   display: grid;
   place-items: center;
 }
-.product-halo {
-  position: absolute;
-  width: min(54vw, 44rem, 96%);
-  aspect-ratio: 1;
-  border: 1px solid rgba(23, 24, 19, 0.11);
-  border-radius: 50%;
-}
-.product-halo::before,
-.product-halo::after {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border: 1px solid rgba(23, 24, 19, 0.07);
-  border-radius: 50%;
-}
-.product-halo::after { inset: 29%; background: rgba(204, 255, 0, 0.045); }
 .product picture { position: relative; z-index: 1; width: min(50vw, 44rem, 94%); }
 .product img {
   width: 100%;
   height: auto;
-  mix-blend-mode: multiply;
   filter: contrast(1.015) saturate(0.96);
   transform: rotate(-1.5deg);
   animation: settle 900ms cubic-bezier(.22, 1, .36, 1) both;
@@ -232,7 +213,6 @@ h1 {
     grid-row: 3;
     align-self: end;
   }
-  .product-halo { width: min(85vw, 30rem); }
   .product picture { width: min(82vw, 29rem); }
 }
 
@@ -243,7 +223,6 @@ h1 {
   .waitlist input { padding: 0 0.7rem; font-size: 0.72rem; }
   .waitlist button { min-width: 9.5rem; padding-inline: 0.8rem; gap: 0.7rem; font-size: 0.67rem; }
   .product picture { width: min(82vw, 23rem); }
-  .product-halo { width: min(86vw, 24rem); }
 }
 
 @media (max-width: 62rem) and (max-height: 42rem) {
@@ -255,7 +234,6 @@ h1 {
   .waitlist { margin-top: 0.75rem; }
   .product { min-height: 0; overflow: hidden; }
   .product picture { width: min(34vh, 70vw, 19rem); }
-  .product-halo { width: min(38vh, 76vw, 21rem); }
 }
 
 @media (max-height: 42rem) and (min-width: 62.01rem) {
