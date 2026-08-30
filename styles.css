@@ -676,6 +676,11 @@ h1 {
   to { opacity: 1; transform: translateX(clamp(0rem, 1vw, 0.75rem)) translateY(0) scale(1); }
 }
 
+@keyframes product-enter-stacked {
+  from { opacity: 0; transform: translateY(1.6rem) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 :focus-visible {
   outline: 3px solid #70a100;
   outline-offset: 3px;
@@ -696,11 +701,15 @@ h1 {
     gap: var(--space-lg);
   }
 
-  .product-visual { min-height: 0; }
+  .product-visual {
+    min-height: 0;
+    padding-block: 1.25rem;
+  }
 
   .product-entry {
     width: min(45rem, calc(100% - 2rem));
     transform: none;
+    animation-name: product-enter-stacked;
   }
 
   .product-visual::after {
@@ -748,8 +757,10 @@ h1 {
     gap: var(--space-md);
   }
 
+  .product-visual { padding-block: 0.75rem; }
+
   .product-entry {
-    width: 100%;
+    width: calc(100% - 1rem);
     transform: none;
   }
 
