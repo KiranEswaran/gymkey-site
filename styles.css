@@ -486,10 +486,10 @@ h1 {
   width: 3.5rem;
   height: 4.7rem;
   border-radius: 0 1.2rem 0 0;
-  background: #f6f4ee;
+  background: #fff;
 }
 
-.app-screen-frame--dark::after { background: #171816; }
+.app-screen-frame--dark::after { background: #111210; }
 
 .reviews {
   padding-top: clamp(4rem, 6vw, 6rem);
