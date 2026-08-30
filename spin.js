@@ -38,7 +38,7 @@ if (spinSection && modelStage && canvas) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
-    camera.position.z = camera.aspect < 0.72 ? 150 : 126;
+    camera.position.z = camera.aspect < 0.72 ? 150 : 136;
     camera.updateProjectionMatrix();
   };
 
@@ -122,13 +122,13 @@ if (spinSection && modelStage && canvas) {
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.06;
 
-      camera.position.set(0, 0, 126);
+      camera.position.set(0, 0, 136);
       scene.add(product);
 
       const hemisphere = new THREE.HemisphereLight(0xffffff, 0x565a52, 1.55);
       const keyLight = new THREE.DirectionalLight(0xffffff, 3.45);
       const fillLight = new THREE.DirectionalLight(0xdde3d7, 1.25);
-      const rimLight = new THREE.DirectionalLight(0xc7ff00, 0.75);
+      const rimLight = new THREE.DirectionalLight(0xc7ff00, 0.18);
       keyLight.position.set(-28, 44, 70);
       fillLight.position.set(36, -18, 58);
       rimLight.position.set(44, 8, -30);
