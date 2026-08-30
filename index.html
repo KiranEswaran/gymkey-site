@@ -13,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260830-5">
-    <script src="script.js?v=20260830-5" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260830-6">
+    <script src="script.js?v=20260830-6" defer></script>
   </head>
   <body data-checkout-endpoint="">
     <a class="skip-link" href="#offer">Skip to offer</a>
@@ -98,7 +98,7 @@
         </div>
       </section>
 
-      <section class="how-it-works content-section" aria-labelledby="how-it-works-title">
+      <section class="how-it-works content-section" id="how-it-works" aria-labelledby="how-it-works-title">
         <header class="section-heading">
           <h2 id="how-it-works-title">How it works.</h2>
           <p>Tap. Train. Tap out.</p>
@@ -110,16 +110,9 @@
               <span class="step-number">01</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
-            <div class="step-screen step-screen-setup" aria-hidden="true">
-              <div class="screen-status"><span>9:41</span><span>•••</span></div>
-              <p class="screen-kicker">Focus mode</p>
-              <strong class="screen-title">Keep selected</strong>
-              <div class="screen-list">
-                <span><b>Music</b><i>On</i></span>
-                <span><b>Calls</b><i>On</i></span>
-                <span><b>Social</b><i>Off</i></span>
-              </div>
-            </div>
+            <figure class="app-screen-frame app-screen-frame--light app-screen-frame--setup">
+              <img src="assets/app-step-01-setup.png" alt="GymKey focus setup screen for choosing which apps stay available" width="1170" height="2532" loading="lazy">
+            </figure>
             <h3>Set up once.</h3>
             <p>Open the app, choose what stays available and save your go-to workout.</p>
           </li>
@@ -128,12 +121,9 @@
               <span class="step-number">02</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
-            <div class="step-screen step-screen-tap" aria-hidden="true">
-              <div class="screen-status"><span>9:41</span><span>•••</span></div>
-              <div class="scan-glyph"><span></span></div>
-              <strong class="screen-title">Ready to tap</strong>
-              <small>Push day</small>
-            </div>
+            <figure class="app-screen-frame app-screen-frame--dark app-screen-frame--tap">
+              <img src="assets/app-step-02-tap.png" alt="GymKey active screen for choosing a saved workout after tapping in" width="1170" height="2532" loading="lazy">
+            </figure>
             <h3>Tap in.</h3>
             <p>Touch GymKey to your iPhone before your first set. Your focused session begins.</p>
           </li>
@@ -142,19 +132,9 @@
               <span class="step-number">03</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
-            <div class="step-screen step-screen-workout" aria-hidden="true">
-              <div class="screen-status"><span>10:04</span><span>•••</span></div>
-              <div class="screen-exercise">
-                <span>Bench press</span>
-                <strong>02 / 04</strong>
-              </div>
-              <div class="screen-weight">
-                <span>−</span>
-                <strong>80 <small>kg</small></strong>
-                <span>+</span>
-              </div>
-              <div class="screen-logged"><span>Set 02</span><strong>Logged</strong></div>
-            </div>
+            <figure class="app-screen-frame app-screen-frame--light app-screen-frame--train">
+              <img src="assets/app-step-03-train.png" alt="GymKey workout logger showing bench press sets, weight and rest timer" width="1170" height="2532" loading="lazy">
+            </figure>
             <h3>Train.</h3>
             <p>Move through your workout, log each set and keep your momentum.</p>
           </li>
@@ -163,81 +143,76 @@
               <span class="step-number">04</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
-            <div class="step-screen step-screen-complete" aria-hidden="true">
-              <div class="screen-status"><span>10:37</span><span>•••</span></div>
-              <p class="screen-kicker">Session complete</p>
-              <strong class="screen-title">46 min</strong>
-              <div class="screen-metrics">
-                <span><strong>12</strong><small>Sets</small></span>
-                <span><strong>8,420</strong><small>kg</small></span>
-              </div>
-              <div class="screen-streak"><span></span><strong>4 day streak</strong></div>
-            </div>
+            <figure class="app-screen-frame app-screen-frame--light app-screen-frame--finish">
+              <img src="assets/app-step-04-finish.png" alt="GymKey completed workout screen with session totals and tap-out prompt" width="1170" height="2532" loading="lazy">
+            </figure>
             <h3>Tap out.</h3>
             <p>Tap the same GymKey when you finish. Your phone returns and the session is saved.</p>
           </li>
         </ol>
       </section>
 
-      <section class="reviews content-section" aria-labelledby="reviews-title">
+      <section class="reviews content-section" id="reviews" aria-labelledby="reviews-title">
         <header class="section-heading">
           <h2 id="reviews-title">Customer reviews.</h2>
-          <p>Prelaunch preview</p>
+          <p>Sample reviews · prelaunch</p>
         </header>
 
-        <div class="review-summary">
-          <div class="rating-lockup">
-            <strong>5.0</strong>
-            <span class="review-stars" aria-hidden="true">★★★★★</span>
-            <p>Sample reviews for layout only.</p>
-          </div>
-
-          <div class="review-filters" role="toolbar" aria-label="Filter sample reviews">
-            <button type="button" data-review-filter="all" aria-pressed="true">All <span>4</span></button>
-            <button type="button" data-review-filter="focus" aria-pressed="false">Focus <span>2</span></button>
-            <button type="button" data-review-filter="training" aria-pressed="false">Training <span>1</span></button>
-            <button type="button" data-review-filter="everyday" aria-pressed="false">Everyday <span>1</span></button>
+        <div class="review-toolbar">
+          <p><span class="review-stars" aria-hidden="true">★★★★★</span> Five early impressions</p>
+          <div class="carousel-controls" role="group" aria-label="Review carousel controls">
+            <button type="button" data-review-prev aria-label="Show previous review">←</button>
+            <button type="button" data-review-next aria-label="Show next review">→</button>
           </div>
         </div>
 
-        <div class="review-grid" data-review-list>
-          <article class="review-item" data-review data-topic="focus">
+        <div class="review-carousel">
+          <div class="review-track" data-review-track tabindex="0" aria-label="Sample customer reviews">
+          <article class="review-item">
             <header>
-              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
               <span class="review-placeholder">Sample review</span>
             </header>
             <blockquote>“I stopped checking my phone between sets. The whole session felt quicker, calmer and far more deliberate.”</blockquote>
             <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
           </article>
 
-          <article class="review-item" data-review data-topic="focus">
+          <article class="review-item">
             <header>
-              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
               <span class="review-placeholder">Sample review</span>
             </header>
             <blockquote>“The first tap made the boundary feel real. I kept music and my workout, and the rest simply disappeared.”</blockquote>
             <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
           </article>
 
-          <article class="review-item" data-review data-topic="training">
+          <article class="review-item">
             <header>
-              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
               <span class="review-placeholder">Sample review</span>
             </header>
             <blockquote>“The logger gives me exactly what I need—exercise, sets, weight and rest—without pulling me into another app.”</blockquote>
             <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
           </article>
 
-          <article class="review-item" data-review data-topic="everyday">
+          <article class="review-item">
             <header>
-              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
               <span class="review-placeholder">Sample review</span>
             </header>
             <blockquote>“It lives on my keys, never needs charging and is ready before every session. Tap in, train, tap out.”</blockquote>
             <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
           </article>
+          <article class="review-item">
+            <header>
+              <span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-placeholder">Sample review</span>
+            </header>
+            <blockquote>“GymKey gives the session a proper start and finish. I spend less time negotiating with myself and more time training.”</blockquote>
+            <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
+          </article>
+          </div>
         </div>
-        <p class="sr-only" data-review-status aria-live="polite">Showing 4 sample reviews</p>
       </section>
 
       <section class="faq content-section" aria-labelledby="faq-title">

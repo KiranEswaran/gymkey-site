@@ -1,8 +1,8 @@
 # GymKey website
 
-Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses the approved transparent, high-resolution GymKey product render with provisional pack options: one GymKey for A$89 total, or two or more for A$69 each, including GST. The multi-pack quantity selector runs from 2–10 and updates the total. A horizontal four-step section explains setup, tap-in, training and tap-out with compact app-state previews rather than a lower-fidelity product visual.
+Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses the approved transparent, high-resolution GymKey product render with provisional pack options: one GymKey for A$89 total, or two or more for A$69 each, including GST. The multi-pack quantity selector runs from 2–10 and updates the total. A horizontal four-step section explains setup, tap-in, training and tap-out with screenshots captured from the current iPhone app build.
 
-The customer review section has working topic filters and is deliberately populated with visibly labelled sample copy, not verified customer claims. Replace every sample review only with permissioned, verified tester feedback before launch. The FAQ uses native `details` elements and keeps only one answer open at a time.
+The customer review section is a keyboard- and touch-accessible horizontal carousel. It is deliberately populated with five visibly labelled sample reviews, not verified customer claims. Replace every sample review only with permissioned, verified tester feedback before launch. The FAQ uses native `details` elements and keeps only one answer open at a time.
 
 The approved render remains static because a single two-dimensional image cannot produce an honest view of unseen sides. A future 360-degree interaction should use a photorealistic, production-accurate 3D asset or a complete turntable render. Checkout remains unavailable until a server-side Stripe Checkout Session endpoint is connected, so the current page cannot take payment.
 
