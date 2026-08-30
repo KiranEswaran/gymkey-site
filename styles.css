@@ -386,7 +386,7 @@ h1 {
 
 .how-it-works {
   border-top: 1px solid var(--ink);
-  padding-top: clamp(4.5rem, 7vw, 7rem);
+  padding-top: clamp(2.75rem, 4vw, 4rem);
   padding-bottom: clamp(3.5rem, 6vw, 6rem);
 }
 
@@ -459,11 +459,12 @@ h1 {
 
 .app-screen-frame {
   position: relative;
-  width: 100%;
+  width: 94%;
   min-width: 0;
   height: auto;
   aspect-ratio: 1170 / 2532;
   margin: 0;
+  justify-self: center;
   overflow: hidden;
   border: 1px solid var(--ink);
   border-radius: 1.25rem;
@@ -493,7 +494,7 @@ h1 {
 
 .reviews {
   padding-top: clamp(4rem, 6vw, 6rem);
-  padding-bottom: clamp(4.5rem, 7vw, 7rem);
+  padding-bottom: clamp(2.5rem, 3vw, 3.5rem);
   border-top: 1px solid var(--ink);
 }
 
@@ -602,6 +603,7 @@ h1 {
 .review-item footer span { color: var(--ink-soft); font-size: 0.62rem; }
 
 .faq {
+  padding-top: clamp(2.5rem, 3vw, 3.5rem);
   display: grid;
   grid-template-columns: minmax(15rem, 0.42fr) minmax(0, 1fr);
   gap: clamp(3rem, 10vw, 10rem);
@@ -757,8 +759,9 @@ h1 {
   .stepper button { width: 2.35rem; height: 2.45rem; }
 
   .content-section { padding-block: var(--space-4xl); }
-  .how-it-works { padding-block: var(--space-4xl) var(--space-3xl); }
-  .reviews { padding-block: var(--space-3xl) var(--space-4xl); }
+  .how-it-works { padding-block: var(--space-2xl) var(--space-3xl); }
+  .reviews { padding-block: var(--space-3xl) var(--space-2xl); }
+  .faq { padding-top: var(--space-2xl); }
   .section-heading h2 { font-size: clamp(3.8rem, 18vw, 5.4rem); }
   .section-heading > p { max-width: 7rem; text-align: right; }
 
