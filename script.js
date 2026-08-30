@@ -6,13 +6,23 @@ const totalPrice = document.querySelector("[data-total-price]");
 const checkoutButton = document.querySelector("[data-checkout-button]");
 const checkoutLabel = document.querySelector("[data-checkout-label]");
 const checkoutStatus = document.querySelector("[data-checkout-status]");
-const productStage = document.querySelector("[data-product-stage]");
+const carouselTrack = document.querySelector("[data-carousel-track]");
+const carouselViewport = document.querySelector("[data-carousel-viewport]");
+const carouselSlides = [...document.querySelectorAll("[data-carousel-slide]")];
+const carouselDots = [...document.querySelectorAll("[data-carousel-dot]")];
+const carouselPrevious = document.querySelector("[data-carousel-previous]");
+const carouselNext = document.querySelector("[data-carousel-next]");
+const carouselCurrent = document.querySelector("[data-carousel-current]");
+const carouselStatus = document.querySelector("[data-carousel-status]");
+const faqItems = [...document.querySelectorAll(".faq-list details")];
 
 const unitPriceCents = Number(page?.dataset.unitPriceCents ?? 8900);
 const checkoutEndpoint = document.body.dataset.checkoutEndpoint?.trim() ?? "";
 const money = new Intl.NumberFormat("en-AU", { maximumFractionDigits: 0 });
 
 let quantity = 1;
+let carouselIndex = 0;
+let carouselPointerStart = null;
 
 const setStatus = (message, isError = false) => {
   if (!checkoutStatus) return;
@@ -32,36 +42,69 @@ const changeQuantity = (amount) => {
   renderQuantity();
 };
 
-const canTrackPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const renderCarousel = (nextIndex, announce = true) => {
+  if (!carouselTrack || carouselSlides.length === 0) return;
 
-const resetProductTilt = () => {
-  if (!productStage) return;
-  productStage.classList.remove("is-tracking");
-  productStage.style.setProperty("--rotate-x", "-1.4deg");
-  productStage.style.setProperty("--rotate-y", "2deg");
-  productStage.style.setProperty("--move-x", "0px");
-  productStage.style.setProperty("--move-y", "0px");
-};
+  carouselIndex = (nextIndex + carouselSlides.length) % carouselSlides.length;
+  carouselTrack.style.transform = `translate3d(-${carouselIndex * 100}%, 0, 0)`;
 
-if (productStage && canTrackPointer.matches && !prefersReducedMotion.matches) {
-  productStage.addEventListener("pointermove", (event) => {
-    const bounds = productStage.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-
-    productStage.classList.add("is-tracking");
-    productStage.style.setProperty("--rotate-x", `${(-y * 7).toFixed(2)}deg`);
-    productStage.style.setProperty("--rotate-y", `${(x * 9).toFixed(2)}deg`);
-    productStage.style.setProperty("--move-x", `${(x * 14).toFixed(1)}px`);
-    productStage.style.setProperty("--move-y", `${(y * 10).toFixed(1)}px`);
+  carouselSlides.forEach((slide, index) => {
+    slide.setAttribute("aria-hidden", index === carouselIndex ? "false" : "true");
   });
 
-  productStage.addEventListener("pointerleave", resetProductTilt);
-}
+  carouselDots.forEach((dot, index) => {
+    if (index === carouselIndex) dot.setAttribute("aria-current", "true");
+    else dot.removeAttribute("aria-current");
+  });
+
+  if (carouselCurrent) carouselCurrent.textContent = String(carouselIndex + 1).padStart(2, "0");
+  if (carouselStatus && announce) {
+    carouselStatus.textContent = `Tester note ${carouselIndex + 1} of ${carouselSlides.length}`;
+  }
+};
 
 decreaseButton?.addEventListener("click", () => changeQuantity(-1));
 increaseButton?.addEventListener("click", () => changeQuantity(1));
+
+carouselPrevious?.addEventListener("click", () => renderCarousel(carouselIndex - 1));
+carouselNext?.addEventListener("click", () => renderCarousel(carouselIndex + 1));
+carouselDots.forEach((dot, index) => dot.addEventListener("click", () => renderCarousel(index)));
+
+carouselViewport?.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    renderCarousel(carouselIndex - 1);
+  }
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    renderCarousel(carouselIndex + 1);
+  }
+});
+
+carouselViewport?.addEventListener("pointerdown", (event) => {
+  carouselPointerStart = event.clientX;
+});
+
+carouselViewport?.addEventListener("pointerup", (event) => {
+  if (carouselPointerStart === null) return;
+  const distance = event.clientX - carouselPointerStart;
+  carouselPointerStart = null;
+  if (Math.abs(distance) < 45) return;
+  renderCarousel(carouselIndex + (distance < 0 ? 1 : -1));
+});
+
+carouselViewport?.addEventListener("pointercancel", () => {
+  carouselPointerStart = null;
+});
+
+faqItems.forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
 
 if (checkoutEndpoint && checkoutButton && checkoutLabel) {
   checkoutButton.disabled = false;
@@ -95,3 +138,4 @@ if (checkoutEndpoint && checkoutButton && checkoutLabel) {
 }
 
 renderQuantity();
+renderCarousel(0, false);

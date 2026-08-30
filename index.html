@@ -13,58 +13,185 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260830">
-    <script src="script.js?v=20260830" defer></script>
+    <link rel="modulepreload" href="vendor/three/three.module.min.js">
+    <link rel="stylesheet" href="styles.css?v=20260830-2">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.min.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+    <script src="script.js?v=20260830-2" defer></script>
+    <script type="module" src="spin.js?v=20260830-2"></script>
   </head>
   <body data-checkout-endpoint="">
     <a class="skip-link" href="#offer">Skip to offer</a>
 
-    <main class="product-page" data-unit-price-cents="8900">
-      <header class="masthead" aria-label="GymKey">
-        <a class="brand" href="./" aria-label="GymKey home">
+    <main data-unit-price-cents="8900">
+      <section class="product-page" id="top">
+        <header class="masthead" aria-label="GymKey">
+          <a class="brand" href="#top" aria-label="GymKey home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>GYMKEY</span>
+          </a>
+        </header>
+
+        <div class="product-shell">
+          <section class="product-visual" aria-label="GymKey product">
+            <figure class="product-entry">
+              <picture class="product-object">
+                <source srcset="assets/gymkey-product-cutout-v3.webp" type="image/webp">
+                <img src="assets/gymkey-product-cutout-v3.png" alt="Matte-black GymKey with lime accent and stainless keyring" width="1536" height="1024" fetchpriority="high">
+              </picture>
+            </figure>
+          </section>
+
+          <section class="purchase" id="offer" aria-labelledby="product-name">
+            <h1 id="product-name">Train without<br>the scroll.</h1>
+
+            <div class="offer-row">
+              <div class="price-block">
+                <p class="price"><span data-total-price>A$89</span></p>
+                <p class="price-note">Provisional · incl. GST</p>
+              </div>
+
+              <div class="quantity-field">
+                <span class="field-label" id="quantity-label">Quantity</span>
+                <div class="stepper" role="group" aria-labelledby="quantity-label">
+                  <button type="button" data-quantity-decrease aria-label="Decrease quantity">−</button>
+                  <output data-quantity aria-live="polite">1</output>
+                  <button type="button" data-quantity-increase aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout">
+              <button class="checkout-button" type="button" data-checkout-button disabled>
+                <span data-checkout-label>Pre-orders opening soon</span>
+                <span aria-hidden="true">↗</span>
+              </button>
+              <p class="checkout-status" data-checkout-status aria-live="polite"></p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="spin-story" data-spin-section aria-labelledby="spin-title">
+        <div class="spin-sticky">
+          <header class="spin-header">
+            <h2 id="spin-title">Every angle.</h2>
+            <p id="spin-instruction">Scroll to rotate. Drag to explore.</p>
+          </header>
+
+          <div class="model-stage" data-model-stage aria-busy="true">
+            <picture class="model-fallback" data-model-fallback aria-hidden="true">
+              <source srcset="assets/gymkey-product-cutout-v3.webp" type="image/webp">
+              <img src="assets/gymkey-product-cutout-v3.png" alt="" width="1536" height="1024" loading="lazy">
+            </picture>
+            <canvas data-model-canvas width="1200" height="900" tabindex="0" aria-label="Interactive 3D GymKey. Drag to orbit or use the arrow keys." aria-describedby="spin-instruction"></canvas>
+            <p class="model-status" data-model-status aria-live="polite">Loading 3D model…</p>
+          </div>
+
+          <div class="spin-progress" aria-hidden="true"><span data-spin-progress></span></div>
+        </div>
+      </section>
+
+      <section class="testimonials content-section" aria-labelledby="testimonials-title">
+        <header class="section-heading">
+          <h2 id="testimonials-title">Tester notes.</h2>
+          <p>Real feedback only.</p>
+        </header>
+
+        <div class="testimonial-carousel" data-carousel>
+          <div class="carousel-viewport" data-carousel-viewport tabindex="0" aria-label="Tester notes carousel">
+            <div class="carousel-track" data-carousel-track>
+              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="1 of 3">
+                <p class="slide-label">Private beta</p>
+                <blockquote>“The first verified GymKey review will live here.”</blockquote>
+                <footer>
+                  <strong>Coming soon</strong>
+                  <span>Physical GymKey sessions</span>
+                </footer>
+              </article>
+
+              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="2 of 3">
+                <p class="slide-label">GymKey standard</p>
+                <blockquote>“No anonymous filler. No invented demand.”</blockquote>
+                <footer>
+                  <strong>Real sessions only</strong>
+                  <span>Verified before publishing</span>
+                </footer>
+              </article>
+
+              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="3 of 3">
+                <p class="slide-label">Beta scope</p>
+                <blockquote>“Focus, workout flow and daily carry will all be tested.”</blockquote>
+                <footer>
+                  <strong>Three practical checks</strong>
+                  <span>Phone, workout and keyring</span>
+                </footer>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <p class="carousel-count"><span data-carousel-current>01</span> / 03</p>
+            <div class="carousel-dots" aria-label="Choose a tester note">
+              <button type="button" data-carousel-dot="0" aria-label="Show tester note 1" aria-current="true"></button>
+              <button type="button" data-carousel-dot="1" aria-label="Show tester note 2"></button>
+              <button type="button" data-carousel-dot="2" aria-label="Show tester note 3"></button>
+            </div>
+            <div class="carousel-arrows">
+              <button type="button" data-carousel-previous aria-label="Previous tester note">←</button>
+              <button type="button" data-carousel-next aria-label="Next tester note">→</button>
+            </div>
+          </div>
+          <p class="sr-only" data-carousel-status aria-live="polite">Tester note 1 of 3</p>
+        </div>
+      </section>
+
+      <section class="faq content-section" aria-labelledby="faq-title">
+        <header class="section-heading faq-heading">
+          <h2 id="faq-title">Questions.</h2>
+        </header>
+
+        <div class="faq-list">
+          <details>
+            <summary><span>What does GymKey do?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>Tap to start a focused workout. Tap again to finish.</p>
+          </details>
+          <details>
+            <summary><span>Does it need charging?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>No. GymKey is passive NFC.</p>
+          </details>
+          <details>
+            <summary><span>Can I choose what stays available?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>Yes. You choose in the iPhone app.</p>
+          </details>
+          <details>
+            <summary><span>Can I log workouts?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>Yes. Save workouts and log sets, weight and rest.</p>
+          </details>
+          <details>
+            <summary><span>Which phones work?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>GymKey is being built for compatible iPhones.</p>
+          </details>
+          <details>
+            <summary><span>When will it ship?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+            <p>Timing will be confirmed before payment.</p>
+          </details>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <a class="brand" href="#top" aria-label="Back to top">
           <span class="brand-mark" aria-hidden="true"></span>
           <span>GYMKEY</span>
         </a>
-      </header>
-
-      <div class="product-shell">
-        <section class="product-visual" data-product-stage aria-label="GymKey product">
-          <figure class="product-entry">
-            <picture class="product-object" data-product-object>
-              <source srcset="assets/gymkey-product-cutout-v3.webp" type="image/webp">
-              <img src="assets/gymkey-product-cutout-v3.png" alt="Matte-black GymKey with lime accent and stainless keyring" width="1536" height="1024" fetchpriority="high">
-            </picture>
-          </figure>
-        </section>
-
-        <section class="purchase" id="offer" aria-labelledby="product-name">
-          <h1 id="product-name">Train without<br>the scroll.</h1>
-
-          <div class="offer-row">
-            <div class="price-block">
-              <p class="price"><span data-total-price>A$89</span></p>
-              <p class="price-note">Provisional · incl. GST</p>
-            </div>
-
-            <div class="quantity-field">
-              <span class="field-label" id="quantity-label">Quantity</span>
-              <div class="stepper" role="group" aria-labelledby="quantity-label">
-                <button type="button" data-quantity-decrease aria-label="Decrease quantity">−</button>
-                <output data-quantity aria-live="polite">1</output>
-                <button type="button" data-quantity-increase aria-label="Increase quantity">+</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="checkout">
-            <button class="checkout-button" type="button" data-checkout-button disabled>
-              <span data-checkout-label>Pre-orders opening soon</span>
-              <span aria-hidden="true">↗</span>
-            </button>
-            <p class="checkout-status" data-checkout-status aria-live="polite"></p>
-          </div>
-        </section>
-      </div>
+        <p>Prelaunch · 2026</p>
+      </footer>
     </main>
   </body>
 </html>
