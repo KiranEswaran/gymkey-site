@@ -402,10 +402,11 @@ h1 {
 
 .process-step {
   min-width: 0;
-  min-height: clamp(29rem, 35vw, 34rem);
+  min-height: 0;
   padding: clamp(1rem, 1.8vw, 1.5rem);
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
   gap: clamp(0.85rem, 1.4vw, 1.2rem);
 }
 
@@ -437,6 +438,7 @@ h1 {
 
 .process-step h3 {
   max-width: 6ch;
+  min-height: 1.74em;
   margin: 0;
   font-family: var(--display);
   font-size: clamp(2.3rem, 3.5vw, 3.8rem);
@@ -448,7 +450,8 @@ h1 {
 
 .process-step > p {
   max-width: 31ch;
-  align-self: end;
+  min-height: 4.65rem;
+  align-self: start;
   color: var(--ink-soft);
   font-size: 0.76rem;
   line-height: 1.55;
@@ -456,8 +459,10 @@ h1 {
 
 .app-screen-frame {
   position: relative;
+  width: 100%;
   min-width: 0;
-  height: clamp(14rem, 18vw, 17rem);
+  height: auto;
+  aspect-ratio: 1170 / 2532;
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--ink);
@@ -468,27 +473,23 @@ h1 {
 
 .app-screen-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
-
-.app-screen-frame--setup img { object-position: center 21%; }
-.app-screen-frame--tap img { object-position: center 23%; }
-.app-screen-frame--train img { object-position: center 25%; }
-.app-screen-frame--finish img { object-position: center 25%; }
 
 .app-screen-frame::after {
   content: "";
   position: absolute;
-  top: 0.45rem;
-  right: 0.45rem;
-  width: 2rem;
-  height: 2rem;
-  background: #f7f5ef;
+  top: 0;
+  right: 0;
+  width: 3.5rem;
+  height: 4.7rem;
+  border-radius: 0 1.2rem 0 0;
+  background: #f6f4ee;
 }
 
-.app-screen-frame--dark::after { background: #111210; }
+.app-screen-frame--dark::after { background: #171816; }
 
 .reviews {
   padding-top: clamp(4rem, 6vw, 6rem);
@@ -722,11 +723,8 @@ h1 {
   }
 
   .process-step {
-    min-height: 31rem;
     scroll-snap-align: start;
   }
-
-  .app-screen-frame { height: 15.5rem; }
 
   .review-track { grid-auto-columns: min(40vw, 19rem); }
 
@@ -768,8 +766,6 @@ h1 {
     width: calc(100vw - 0.75rem);
     grid-auto-columns: min(78vw, 19rem);
   }
-
-  .process-step { min-height: 31rem; }
 
   .process-step h3 { font-size: clamp(3rem, 15vw, 4rem); }
 

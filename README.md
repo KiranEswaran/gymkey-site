@@ -1,6 +1,6 @@
 # GymKey website
 
-Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses the approved transparent, high-resolution GymKey product render with provisional pack options: one GymKey for A$89 total, or two or more for A$69 each, including GST. The multi-pack quantity selector runs from 2–10 and updates the total. A horizontal four-step section explains setup, tap-in, training and tap-out with screenshots captured from the current iPhone app build.
+Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses the approved transparent, high-resolution GymKey product render with provisional pack options: one GymKey for A$89 total, or two or more for A$69 each, including GST. The multi-pack quantity selector runs from 2–10 and updates the total. A horizontal four-step section explains setup, tap-in, training and tap-out, with the title and outcome copy above a complete, uncropped screenshot captured from the current iPhone app build.
 
 The customer review section is a keyboard- and touch-accessible horizontal carousel. It is deliberately populated with five visibly labelled sample reviews, not verified customer claims. Replace every sample review only with permissioned, verified tester feedback before launch. The FAQ uses native `details` elements and keeps only one answer open at a time.
 
