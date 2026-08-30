@@ -1,12 +1,10 @@
 # GymKey website
 
-Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses a transparent, high-resolution GymKey cutout with a provisional A$89 including-GST offer, quantity selection from 1–10 and a live total. Below it, a real WebGL model loads the checked-in front, back and lime-insert STL geometry: scrolling turns the model through 360 degrees, while pointer, touch and arrow-key controls allow free orbit. Scroll-driven motion is disabled when the visitor requests reduced motion.
+Static HTML/CSS/JavaScript single-product prelaunch site. The opening screen uses the approved transparent, high-resolution GymKey product render with a provisional A$89 including-GST offer, quantity selection from 1–10 and a live total. A horizontal four-step section explains setup, tap-in, training and tap-out without introducing a lower-fidelity product visual.
 
 The testimonial carousel is deliberately populated with clearly labelled beta placeholders, not invented customer claims. Replace those slides only with permissioned, verified tester quotes. The FAQ uses native `details` elements and keeps only one answer open at a time.
 
-Three.js 0.185.1 and the required STL/Orbit modules are vendored under `vendor/three/` with the upstream MIT licence. The WebGL viewer does not depend on a third-party CDN at runtime. Checkout remains unavailable until a server-side Stripe Checkout Session endpoint is connected, so the current page cannot take payment.
-
-The shell and lime insert in the 3D viewer use the checked-in CAD geometry. The flexible tether and steel split ring are lightweight procedural visual approximations for the storefront, not manufacturing CAD.
+The approved render remains static because a single two-dimensional image cannot produce an honest view of unseen sides. A future 360-degree interaction should use a photorealistic, production-accurate 3D asset or a complete turntable render. Checkout remains unavailable until a server-side Stripe Checkout Session endpoint is connected, so the current page cannot take payment.
 
 ## Stripe wiring seam
 

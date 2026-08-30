@@ -13,18 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="modulepreload" href="vendor/three/three.module.min.js">
-    <link rel="stylesheet" href="styles.css?v=20260830-2">
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./vendor/three/three.module.min.js",
-          "three/addons/": "./vendor/three/addons/"
-        }
-      }
-    </script>
-    <script src="script.js?v=20260830-2" defer></script>
-    <script type="module" src="spin.js?v=20260830-3"></script>
+    <link rel="stylesheet" href="styles.css?v=20260830-4">
+    <script src="script.js?v=20260830-4" defer></script>
   </head>
   <body data-checkout-endpoint="">
     <a class="skip-link" href="#offer">Skip to offer</a>
@@ -78,24 +68,46 @@
         </div>
       </section>
 
-      <section class="spin-story" data-spin-section aria-labelledby="spin-title">
-        <div class="spin-sticky">
-          <header class="spin-header">
-            <h2 id="spin-title">Every angle.</h2>
-            <p id="spin-instruction">Scroll to rotate. Drag to explore.</p>
-          </header>
+      <section class="how-it-works content-section" aria-labelledby="how-it-works-title">
+        <header class="section-heading">
+          <h2 id="how-it-works-title">How it works.</h2>
+          <p>Tap. Train. Tap out.</p>
+        </header>
 
-          <div class="model-stage" data-model-stage aria-busy="true">
-            <picture class="model-fallback" data-model-fallback aria-hidden="true">
-              <source srcset="assets/gymkey-product-cutout-v3.webp" type="image/webp">
-              <img src="assets/gymkey-product-cutout-v3.png" alt="" width="1536" height="1024" loading="lazy">
-            </picture>
-            <canvas data-model-canvas width="1200" height="900" tabindex="0" aria-label="Interactive 3D GymKey. Drag to orbit or use the arrow keys." aria-describedby="spin-instruction"></canvas>
-            <p class="model-status" data-model-status aria-live="polite">Loading 3D model…</p>
-          </div>
-
-          <div class="spin-progress" aria-hidden="true"><span data-spin-progress></span></div>
-        </div>
+        <ol class="process-steps" aria-label="Four steps to use GymKey">
+          <li class="process-step">
+            <div class="step-topline">
+              <span class="step-number">01</span>
+              <span class="step-mark" aria-hidden="true"></span>
+            </div>
+            <h3>Set up once.</h3>
+            <p>Open the app, choose what stays available and save your go-to workout.</p>
+          </li>
+          <li class="process-step">
+            <div class="step-topline">
+              <span class="step-number">02</span>
+              <span class="step-mark" aria-hidden="true"></span>
+            </div>
+            <h3>Tap in.</h3>
+            <p>Touch GymKey to your iPhone before your first set. Your focused session begins.</p>
+          </li>
+          <li class="process-step">
+            <div class="step-topline">
+              <span class="step-number">03</span>
+              <span class="step-mark" aria-hidden="true"></span>
+            </div>
+            <h3>Train.</h3>
+            <p>Move through your workout, log each set and keep your momentum.</p>
+          </li>
+          <li class="process-step">
+            <div class="step-topline">
+              <span class="step-number">04</span>
+              <span class="step-mark" aria-hidden="true"></span>
+            </div>
+            <h3>Tap out.</h3>
+            <p>Tap the same GymKey when you finish. Your phone returns and the session is saved.</p>
+          </li>
+        </ol>
       </section>
 
       <section class="testimonials content-section" aria-labelledby="testimonials-title">
@@ -160,27 +172,27 @@
         <div class="faq-list">
           <details>
             <summary><span>What does GymKey do?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>Tap to start a focused workout. Tap again to finish.</p>
+            <p>It turns your iPhone into a training-only tool. Tap in, keep what helps your workout and leave the usual distractions outside the session.</p>
           </details>
           <details>
             <summary><span>Does it need charging?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>No. GymKey is passive NFC.</p>
+            <p>Never. Keep it on your keys and it is ready whenever you are.</p>
           </details>
           <details>
             <summary><span>Can I choose what stays available?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>Yes. You choose in the iPhone app.</p>
+            <p>Yes. Keep music, calls and the apps that genuinely help you train. Put everything else out of reach until you tap out.</p>
           </details>
           <details>
             <summary><span>Can I log workouts?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>Yes. Save workouts and log sets, weight and rest.</p>
+            <p>Yes. Pick a saved workout after you tap in, then log sets, weight and rest without leaving your focused session.</p>
           </details>
           <details>
             <summary><span>Which phones work?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>GymKey is being built for compatible iPhones.</p>
+            <p>GymKey is launching for compatible iPhones. Exact model and iOS requirements will be clear before pre-orders open.</p>
           </details>
           <details>
             <summary><span>When will it ship?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
-            <p>Timing will be confirmed before payment.</p>
+            <p>We are finishing real-world testing first. You will see a clear delivery estimate before you are ever asked to pay.</p>
           </details>
         </div>
       </section>
