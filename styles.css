@@ -459,7 +459,7 @@ h1 {
 
 .app-screen-frame {
   position: relative;
-  width: 94%;
+  width: 88%;
   min-width: 0;
   height: auto;
   aspect-ratio: 1170 / 2532;
@@ -692,7 +692,7 @@ h1 {
 
   .product-shell {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(17rem, 34svh) auto;
+    grid-template-rows: minmax(30rem, 44svh) auto;
     gap: 0;
   }
 
@@ -713,7 +713,7 @@ h1 {
   h1 { font-size: clamp(4.3rem, 17vw, 7.2rem); }
 
   .process-steps {
-    width: calc(100vw - 1rem);
+    width: 100%;
     grid-template-columns: none;
     grid-auto-flow: column;
     grid-auto-columns: min(42vw, 20rem);
@@ -743,7 +743,7 @@ h1 {
   .content-section,
   .site-footer { width: calc(100% - 1.5rem); }
 
-  .product-shell { grid-template-rows: minmax(13rem, 30svh) auto; }
+  .product-shell { grid-template-rows: minmax(14rem, 33svh) auto; }
 
   .product-entry {
     width: min(40rem, 100vw);
@@ -764,9 +764,19 @@ h1 {
   .faq { padding-top: var(--space-2xl); }
   .section-heading h2 { font-size: clamp(3.8rem, 18vw, 5.4rem); }
   .section-heading > p { max-width: 7rem; text-align: right; }
+  .reviews .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .reviews .section-heading > p {
+    max-width: none;
+    padding-bottom: 0;
+    text-align: left;
+  }
 
   .process-steps {
-    width: calc(100vw - 0.75rem);
+    width: 100%;
     grid-auto-columns: min(78vw, 19rem);
   }
 
