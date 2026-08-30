@@ -6,6 +6,7 @@ const totalPrice = document.querySelector("[data-total-price]");
 const checkoutButton = document.querySelector("[data-checkout-button]");
 const checkoutLabel = document.querySelector("[data-checkout-label]");
 const checkoutStatus = document.querySelector("[data-checkout-status]");
+const productStage = document.querySelector("[data-product-stage]");
 
 const unitPriceCents = Number(page?.dataset.unitPriceCents ?? 8900);
 const checkoutEndpoint = document.body.dataset.checkoutEndpoint?.trim() ?? "";
@@ -30,6 +31,34 @@ const changeQuantity = (amount) => {
   quantity = Math.min(10, Math.max(1, quantity + amount));
   renderQuantity();
 };
+
+const canTrackPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const resetProductTilt = () => {
+  if (!productStage) return;
+  productStage.classList.remove("is-tracking");
+  productStage.style.setProperty("--rotate-x", "-1.4deg");
+  productStage.style.setProperty("--rotate-y", "2deg");
+  productStage.style.setProperty("--move-x", "0px");
+  productStage.style.setProperty("--move-y", "0px");
+};
+
+if (productStage && canTrackPointer.matches && !prefersReducedMotion.matches) {
+  productStage.addEventListener("pointermove", (event) => {
+    const bounds = productStage.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    productStage.classList.add("is-tracking");
+    productStage.style.setProperty("--rotate-x", `${(-y * 7).toFixed(2)}deg`);
+    productStage.style.setProperty("--rotate-y", `${(x * 9).toFixed(2)}deg`);
+    productStage.style.setProperty("--move-x", `${(x * 14).toFixed(1)}px`);
+    productStage.style.setProperty("--move-y", `${(y * 10).toFixed(1)}px`);
+  });
+
+  productStage.addEventListener("pointerleave", resetProductTilt);
+}
 
 decreaseButton?.addEventListener("click", () => changeQuantity(-1));
 increaseButton?.addEventListener("click", () => changeQuantity(1));

@@ -1,6 +1,6 @@
 # GymKey website
 
-Static HTML/CSS/JavaScript single-product prelaunch site. It shows the approved GymKey render, a provisional A$89 including-GST offer, quantity selection from 1–10 and a live total. Checkout remains visibly unavailable until a server-side Stripe Checkout Session endpoint is connected, so the current page cannot take payment.
+Static HTML/CSS/JavaScript single-product prelaunch site. The one-screen layout uses a transparent, high-resolution GymKey cutout with a restrained pointer-responsive perspective tilt, a provisional A$89 including-GST offer, quantity selection from 1–10 and a live total. Motion is disabled when the visitor requests reduced motion. Checkout remains unavailable until a server-side Stripe Checkout Session endpoint is connected, so the current page cannot take payment.
 
 ## Stripe wiring seam
 
