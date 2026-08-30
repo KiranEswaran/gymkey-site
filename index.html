@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f2efe6">
-    <meta name="description" content="GymKey is the physical key for focused training. Train without the scroll.">
+    <meta name="theme-color" content="#f3efe6">
+    <meta name="description" content="GymKey is a physical key for more deliberate, focused training. Prelaunch preview for iPhone.">
     <meta property="og:title" content="GymKey — Train without the scroll.">
-    <meta property="og:description" content="A physical key for focused training. Join the GymKey waitlist.">
+    <meta property="og:description" content="A battery-free NFC key built for more deliberate gym sessions. Prelaunch preview.">
     <meta property="og:image" content="assets/gymkey-hero-premium-v2.png">
     <title>GymKey — Train without the scroll.</title>
     <link rel="icon" href="assets/favicon.png">
@@ -16,37 +16,67 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+  <body data-checkout-endpoint="">
+    <a class="skip-link" href="#product">Skip to product</a>
 
-    <main id="main" class="hero">
+    <main id="product" class="product-page" data-unit-price-cents="8900">
       <header class="masthead" aria-label="GymKey">
         <a class="brand" href="./" aria-label="GymKey home">
           <span class="brand-glyph" aria-hidden="true">G<span></span></span>
           <span>GYMKEY</span>
         </a>
+        <p>Prelaunch&nbsp;&nbsp;·&nbsp;&nbsp;iPhone</p>
       </header>
 
-      <section class="hero-copy" aria-labelledby="hero-title">
-        <h1 id="hero-title">Train without<br>the scroll.</h1>
-
-        <form class="waitlist" data-waitlist-form novalidate>
-          <label class="sr-only" for="waitlist-email">Email address</label>
-          <div class="waitlist-control">
-            <input id="waitlist-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required aria-describedby="waitlist-status">
-            <button type="submit">Join the waitlist <span aria-hidden="true">↗</span></button>
-          </div>
-          <p id="waitlist-status" class="form-status" data-waitlist-status aria-live="polite"></p>
-        </form>
+      <section class="product-visual" aria-label="GymKey product">
+        <p class="visual-label" aria-hidden="true">01&nbsp;&nbsp;/&nbsp;&nbsp;FOCUS KEY</p>
+        <figure>
+          <picture>
+            <source srcset="assets/gymkey-hero-premium-v2.webp" type="image/webp">
+            <img src="assets/gymkey-hero-premium-v2.png" alt="Matte-black GymKey with embossed wordmark, lime accent and stainless keyring" width="1254" height="1254" fetchpriority="high">
+          </picture>
+        </figure>
+        <p class="visual-note">Battery-free NFC&nbsp;&nbsp;·&nbsp;&nbsp;Matte black</p>
       </section>
 
-      <figure class="product">
-        <picture>
-          <source srcset="assets/gymkey-hero-premium-v2.webp" type="image/webp">
-          <img src="assets/gymkey-hero-premium-v2.png" alt="Matte-black GymKey with embossed wordmark, lime accent and a stainless keyring" width="1254" height="1254" fetchpriority="high">
-        </picture>
-      </figure>
+      <section class="purchase" aria-labelledby="product-name">
+        <div class="purchase-intro">
+          <p class="eyebrow">A physical cue to train</p>
+          <h1 id="product-name">GymKey</h1>
+          <p class="promise">Tap in. Follow your workout.<br>Log every set. Tap out.</p>
+          <p class="description">Built to keep training tools close and the rest of your phone out of the way.</p>
+        </div>
 
+        <div class="price-row">
+          <div>
+            <p class="field-label">Provisional price</p>
+            <p class="price"><span data-total-price>A$89</span> <small>incl. GST</small></p>
+          </div>
+
+          <div class="quantity-field">
+            <span class="field-label" id="quantity-label">Quantity</span>
+            <div class="stepper" role="group" aria-labelledby="quantity-label">
+              <button type="button" data-quantity-decrease aria-label="Decrease quantity">−</button>
+              <output data-quantity aria-live="polite">1</output>
+              <button type="button" data-quantity-increase aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout">
+          <button class="checkout-button" type="button" data-checkout-button disabled>
+            <span data-checkout-label>Pre-orders opening soon</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+          <p class="checkout-status" data-checkout-status aria-live="polite">No payment is taken today. Delivery timing will be confirmed after production validation.</p>
+        </div>
+
+        <ul class="facts">
+          <li><span>Works with</span><strong>Compatible iPhones</strong></li>
+          <li><span>App access</span><strong>Included</strong></li>
+          <li><span>Current status</span><strong>Hardware + controls in beta</strong></li>
+        </ul>
+      </section>
     </main>
   </body>
 </html>
