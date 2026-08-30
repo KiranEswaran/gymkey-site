@@ -13,13 +13,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260830-4">
-    <script src="script.js?v=20260830-4" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260830-5">
+    <script src="script.js?v=20260830-5" defer></script>
   </head>
   <body data-checkout-endpoint="">
     <a class="skip-link" href="#offer">Skip to offer</a>
 
-    <main data-unit-price-cents="8900">
+    <main data-single-price-cents="8900" data-multi-price-cents="6900">
       <section class="product-page" id="top">
         <header class="masthead" aria-label="GymKey">
           <a class="brand" href="#top" aria-label="GymKey home">
@@ -41,17 +41,47 @@
           <section class="purchase" id="offer" aria-labelledby="product-name">
             <h1 id="product-name">Train without<br>the scroll.</h1>
 
+            <fieldset class="bundle-picker">
+              <legend>Choose your pack</legend>
+              <div class="bundle-options">
+                <label class="bundle-option">
+                  <input type="radio" name="bundle" value="single" data-bundle checked>
+                  <span class="bundle-name">
+                    <strong>1 GymKey</strong>
+                    <small>Solo</small>
+                  </span>
+                  <span class="bundle-rate">
+                    <strong>A$89</strong>
+                    <small>Total</small>
+                  </span>
+                </label>
+
+                <label class="bundle-option">
+                  <input type="radio" name="bundle" value="multi" data-bundle>
+                  <span class="bundle-name">
+                    <strong>2+ GymKeys</strong>
+                    <small>Save A$20 each</small>
+                  </span>
+                  <span class="bundle-rate">
+                    <strong>A$69</strong>
+                    <small>Each</small>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
             <div class="offer-row">
               <div class="price-block">
+                <p class="price-label">Order total</p>
                 <p class="price"><span data-total-price>A$89</span></p>
-                <p class="price-note">Provisional · incl. GST</p>
+                <p class="price-note" data-price-note>Provisional · incl. GST</p>
               </div>
 
-              <div class="quantity-field">
+              <div class="quantity-field" data-quantity-field hidden>
                 <span class="field-label" id="quantity-label">Quantity</span>
                 <div class="stepper" role="group" aria-labelledby="quantity-label">
                   <button type="button" data-quantity-decrease aria-label="Decrease quantity">−</button>
-                  <output data-quantity aria-live="polite">1</output>
+                  <output data-quantity aria-live="polite">2</output>
                   <button type="button" data-quantity-increase aria-label="Increase quantity">+</button>
                 </div>
               </div>
@@ -80,6 +110,16 @@
               <span class="step-number">01</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
+            <div class="step-screen step-screen-setup" aria-hidden="true">
+              <div class="screen-status"><span>9:41</span><span>•••</span></div>
+              <p class="screen-kicker">Focus mode</p>
+              <strong class="screen-title">Keep selected</strong>
+              <div class="screen-list">
+                <span><b>Music</b><i>On</i></span>
+                <span><b>Calls</b><i>On</i></span>
+                <span><b>Social</b><i>Off</i></span>
+              </div>
+            </div>
             <h3>Set up once.</h3>
             <p>Open the app, choose what stays available and save your go-to workout.</p>
           </li>
@@ -87,6 +127,12 @@
             <div class="step-topline">
               <span class="step-number">02</span>
               <span class="step-mark" aria-hidden="true"></span>
+            </div>
+            <div class="step-screen step-screen-tap" aria-hidden="true">
+              <div class="screen-status"><span>9:41</span><span>•••</span></div>
+              <div class="scan-glyph"><span></span></div>
+              <strong class="screen-title">Ready to tap</strong>
+              <small>Push day</small>
             </div>
             <h3>Tap in.</h3>
             <p>Touch GymKey to your iPhone before your first set. Your focused session begins.</p>
@@ -96,6 +142,19 @@
               <span class="step-number">03</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
+            <div class="step-screen step-screen-workout" aria-hidden="true">
+              <div class="screen-status"><span>10:04</span><span>•••</span></div>
+              <div class="screen-exercise">
+                <span>Bench press</span>
+                <strong>02 / 04</strong>
+              </div>
+              <div class="screen-weight">
+                <span>−</span>
+                <strong>80 <small>kg</small></strong>
+                <span>+</span>
+              </div>
+              <div class="screen-logged"><span>Set 02</span><strong>Logged</strong></div>
+            </div>
             <h3>Train.</h3>
             <p>Move through your workout, log each set and keep your momentum.</p>
           </li>
@@ -104,64 +163,81 @@
               <span class="step-number">04</span>
               <span class="step-mark" aria-hidden="true"></span>
             </div>
+            <div class="step-screen step-screen-complete" aria-hidden="true">
+              <div class="screen-status"><span>10:37</span><span>•••</span></div>
+              <p class="screen-kicker">Session complete</p>
+              <strong class="screen-title">46 min</strong>
+              <div class="screen-metrics">
+                <span><strong>12</strong><small>Sets</small></span>
+                <span><strong>8,420</strong><small>kg</small></span>
+              </div>
+              <div class="screen-streak"><span></span><strong>4 day streak</strong></div>
+            </div>
             <h3>Tap out.</h3>
             <p>Tap the same GymKey when you finish. Your phone returns and the session is saved.</p>
           </li>
         </ol>
       </section>
 
-      <section class="testimonials content-section" aria-labelledby="testimonials-title">
+      <section class="reviews content-section" aria-labelledby="reviews-title">
         <header class="section-heading">
-          <h2 id="testimonials-title">Tester notes.</h2>
-          <p>Real feedback only.</p>
+          <h2 id="reviews-title">Customer reviews.</h2>
+          <p>Prelaunch preview</p>
         </header>
 
-        <div class="testimonial-carousel" data-carousel>
-          <div class="carousel-viewport" data-carousel-viewport tabindex="0" aria-label="Tester notes carousel">
-            <div class="carousel-track" data-carousel-track>
-              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="1 of 3">
-                <p class="slide-label">Private beta</p>
-                <blockquote>“The first verified GymKey review will live here.”</blockquote>
-                <footer>
-                  <strong>Coming soon</strong>
-                  <span>Physical GymKey sessions</span>
-                </footer>
-              </article>
-
-              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="2 of 3">
-                <p class="slide-label">GymKey standard</p>
-                <blockquote>“No anonymous filler. No invented demand.”</blockquote>
-                <footer>
-                  <strong>Real sessions only</strong>
-                  <span>Verified before publishing</span>
-                </footer>
-              </article>
-
-              <article class="testimonial-slide" data-carousel-slide aria-roledescription="slide" aria-label="3 of 3">
-                <p class="slide-label">Beta scope</p>
-                <blockquote>“Focus, workout flow and daily carry will all be tested.”</blockquote>
-                <footer>
-                  <strong>Three practical checks</strong>
-                  <span>Phone, workout and keyring</span>
-                </footer>
-              </article>
-            </div>
+        <div class="review-summary">
+          <div class="rating-lockup">
+            <strong>5.0</strong>
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <p>Sample reviews for layout only.</p>
           </div>
 
-          <div class="carousel-controls">
-            <p class="carousel-count"><span data-carousel-current>01</span> / 03</p>
-            <div class="carousel-dots" aria-label="Choose a tester note">
-              <button type="button" data-carousel-dot="0" aria-label="Show tester note 1" aria-current="true"></button>
-              <button type="button" data-carousel-dot="1" aria-label="Show tester note 2"></button>
-              <button type="button" data-carousel-dot="2" aria-label="Show tester note 3"></button>
-            </div>
-            <div class="carousel-arrows">
-              <button type="button" data-carousel-previous aria-label="Previous tester note">←</button>
-              <button type="button" data-carousel-next aria-label="Next tester note">→</button>
-            </div>
+          <div class="review-filters" role="toolbar" aria-label="Filter sample reviews">
+            <button type="button" data-review-filter="all" aria-pressed="true">All <span>4</span></button>
+            <button type="button" data-review-filter="focus" aria-pressed="false">Focus <span>2</span></button>
+            <button type="button" data-review-filter="training" aria-pressed="false">Training <span>1</span></button>
+            <button type="button" data-review-filter="everyday" aria-pressed="false">Everyday <span>1</span></button>
           </div>
-          <p class="sr-only" data-carousel-status aria-live="polite">Tester note 1 of 3</p>
         </div>
+
+        <div class="review-grid" data-review-list>
+          <article class="review-item" data-review data-topic="focus">
+            <header>
+              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-placeholder">Sample review</span>
+            </header>
+            <blockquote>“I stopped checking my phone between sets. The whole session felt quicker, calmer and far more deliberate.”</blockquote>
+            <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
+          </article>
+
+          <article class="review-item" data-review data-topic="focus">
+            <header>
+              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-placeholder">Sample review</span>
+            </header>
+            <blockquote>“The first tap made the boundary feel real. I kept music and my workout, and the rest simply disappeared.”</blockquote>
+            <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
+          </article>
+
+          <article class="review-item" data-review data-topic="training">
+            <header>
+              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-placeholder">Sample review</span>
+            </header>
+            <blockquote>“The logger gives me exactly what I need—exercise, sets, weight and rest—without pulling me into another app.”</blockquote>
+            <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
+          </article>
+
+          <article class="review-item" data-review data-topic="everyday">
+            <header>
+              <span class="review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <span class="review-placeholder">Sample review</span>
+            </header>
+            <blockquote>“It lives on my keys, never needs charging and is ready before every session. Tap in, train, tap out.”</blockquote>
+            <footer><strong>Placeholder customer</strong><span>Replace after physical beta</span></footer>
+          </article>
+        </div>
+        <p class="sr-only" data-review-status aria-live="polite">Showing 4 sample reviews</p>
       </section>
 
       <section class="faq content-section" aria-labelledby="faq-title">

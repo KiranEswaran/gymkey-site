@@ -1,28 +1,26 @@
-const page = document.querySelector("[data-unit-price-cents]");
+const page = document.querySelector("[data-single-price-cents]");
+const bundleOptions = [...document.querySelectorAll("[data-bundle]")];
 const quantityOutput = document.querySelector("[data-quantity]");
+const quantityField = document.querySelector("[data-quantity-field]");
 const decreaseButton = document.querySelector("[data-quantity-decrease]");
 const increaseButton = document.querySelector("[data-quantity-increase]");
 const totalPrice = document.querySelector("[data-total-price]");
+const priceNote = document.querySelector("[data-price-note]");
 const checkoutButton = document.querySelector("[data-checkout-button]");
 const checkoutLabel = document.querySelector("[data-checkout-label]");
 const checkoutStatus = document.querySelector("[data-checkout-status]");
-const carouselTrack = document.querySelector("[data-carousel-track]");
-const carouselViewport = document.querySelector("[data-carousel-viewport]");
-const carouselSlides = [...document.querySelectorAll("[data-carousel-slide]")];
-const carouselDots = [...document.querySelectorAll("[data-carousel-dot]")];
-const carouselPrevious = document.querySelector("[data-carousel-previous]");
-const carouselNext = document.querySelector("[data-carousel-next]");
-const carouselCurrent = document.querySelector("[data-carousel-current]");
-const carouselStatus = document.querySelector("[data-carousel-status]");
+const reviewFilters = [...document.querySelectorAll("[data-review-filter]")];
+const reviews = [...document.querySelectorAll("[data-review]")];
+const reviewStatus = document.querySelector("[data-review-status]");
 const faqItems = [...document.querySelectorAll(".faq-list details")];
 
-const unitPriceCents = Number(page?.dataset.unitPriceCents ?? 8900);
+const singlePriceCents = Number(page?.dataset.singlePriceCents ?? 8900);
+const multiPriceCents = Number(page?.dataset.multiPriceCents ?? 6900);
 const checkoutEndpoint = document.body.dataset.checkoutEndpoint?.trim() ?? "";
 const money = new Intl.NumberFormat("en-AU", { maximumFractionDigits: 0 });
 
 let quantity = 1;
-let carouselIndex = 0;
-let carouselPointerStart = null;
+let bundle = "single";
 
 const setStatus = (message, isError = false) => {
   if (!checkoutStatus) return;
@@ -31,70 +29,53 @@ const setStatus = (message, isError = false) => {
 };
 
 const renderQuantity = () => {
+  const isMulti = bundle === "multi";
+  const unitPriceCents = isMulti ? multiPriceCents : singlePriceCents;
   if (quantityOutput) quantityOutput.value = String(quantity);
   if (totalPrice) totalPrice.textContent = `A$${money.format((unitPriceCents * quantity) / 100)}`;
-  if (decreaseButton) decreaseButton.disabled = quantity === 1;
+  if (priceNote) priceNote.textContent = isMulti ? "A$69 each · provisional · incl. GST" : "Provisional · incl. GST";
+  if (quantityField) quantityField.hidden = !isMulti;
+  if (decreaseButton) decreaseButton.disabled = quantity === (isMulti ? 2 : 1);
   if (increaseButton) increaseButton.disabled = quantity === 10;
 };
 
 const changeQuantity = (amount) => {
-  quantity = Math.min(10, Math.max(1, quantity + amount));
+  const minimum = bundle === "multi" ? 2 : 1;
+  quantity = Math.min(10, Math.max(minimum, quantity + amount));
   renderQuantity();
-};
-
-const renderCarousel = (nextIndex, announce = true) => {
-  if (!carouselTrack || carouselSlides.length === 0) return;
-
-  carouselIndex = (nextIndex + carouselSlides.length) % carouselSlides.length;
-  carouselTrack.style.transform = `translate3d(-${carouselIndex * 100}%, 0, 0)`;
-
-  carouselSlides.forEach((slide, index) => {
-    slide.setAttribute("aria-hidden", index === carouselIndex ? "false" : "true");
-  });
-
-  carouselDots.forEach((dot, index) => {
-    if (index === carouselIndex) dot.setAttribute("aria-current", "true");
-    else dot.removeAttribute("aria-current");
-  });
-
-  if (carouselCurrent) carouselCurrent.textContent = String(carouselIndex + 1).padStart(2, "0");
-  if (carouselStatus && announce) {
-    carouselStatus.textContent = `Tester note ${carouselIndex + 1} of ${carouselSlides.length}`;
-  }
 };
 
 decreaseButton?.addEventListener("click", () => changeQuantity(-1));
 increaseButton?.addEventListener("click", () => changeQuantity(1));
 
-carouselPrevious?.addEventListener("click", () => renderCarousel(carouselIndex - 1));
-carouselNext?.addEventListener("click", () => renderCarousel(carouselIndex + 1));
-carouselDots.forEach((dot, index) => dot.addEventListener("click", () => renderCarousel(index)));
-
-carouselViewport?.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft") {
-    event.preventDefault();
-    renderCarousel(carouselIndex - 1);
-  }
-  if (event.key === "ArrowRight") {
-    event.preventDefault();
-    renderCarousel(carouselIndex + 1);
-  }
+bundleOptions.forEach((option) => {
+  option.addEventListener("change", () => {
+    if (!option.checked) return;
+    bundle = option.value;
+    quantity = bundle === "multi" ? Math.max(2, quantity) : 1;
+    renderQuantity();
+  });
 });
 
-carouselViewport?.addEventListener("pointerdown", (event) => {
-  carouselPointerStart = event.clientX;
-});
+reviewFilters.forEach((filterButton) => {
+  filterButton.addEventListener("click", () => {
+    const topic = filterButton.dataset.reviewFilter ?? "all";
+    let visibleCount = 0;
 
-carouselViewport?.addEventListener("pointerup", (event) => {
-  if (carouselPointerStart === null) return;
-  const distance = event.clientX - carouselPointerStart;
-  carouselPointerStart = null;
-  if (Math.abs(distance) < 45) return;
-  renderCarousel(carouselIndex + (distance < 0 ? 1 : -1));
-});
+    reviewFilters.forEach((button) => {
+      button.setAttribute("aria-pressed", button === filterButton ? "true" : "false");
+    });
 
-carouselViewport?.addEventListener("pointercancel", () => {
-  carouselPointerStart = null;
+    reviews.forEach((review) => {
+      const isVisible = topic === "all" || review.dataset.topic === topic;
+      review.hidden = !isVisible;
+      if (isVisible) visibleCount += 1;
+    });
+
+    if (reviewStatus) {
+      reviewStatus.textContent = `Showing ${visibleCount} sample review${visibleCount === 1 ? "" : "s"}`;
+    }
+  });
 });
 
 faqItems.forEach((item) => {
@@ -138,4 +119,3 @@ if (checkoutEndpoint && checkoutButton && checkoutLabel) {
 }
 
 renderQuantity();
-renderCarousel(0, false);
